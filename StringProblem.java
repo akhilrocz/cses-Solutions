@@ -5,19 +5,13 @@ public class StringProblem {
         Scanner sc = new Scanner(System.in);
         String s = sc.next();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < s.length(); i++) {
-            char current = s.charAt(i);
-            char prev = s.charAt(i - 1);
-            if (isVowel(current) && !isVowel(prev)) {
-                sb.setCharAt(i - 1, '.');
+        String vowels = "aeiouyAEIOUY";
+        for (char c : s.toCharArray()) {
+            if (vowels.indexOf(c) == -1) {
+                sb.append(".").append(Character.toLowerCase(c));
             }
         }
         System.out.println(sb.toString());
-    }
-
-    public static boolean isVowel(char ch) {
-        ch = Character.toLowerCase(ch);
-        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
     }
 
 }
